@@ -17,7 +17,11 @@ public class lightOut {
             for (int j = 0; j < 3; j++) {
 
                 if (arr[i][j] % 2 != 0) {
-                    init[i][j] = 0;
+                    if (init[i][j] == 1) {
+                        init[i][j] = 0;
+                    } else {
+                        init[i][j] = 1;
+                    }
 
                     if (i != 2) {
                         if (init[i + 1][j] == 1) {

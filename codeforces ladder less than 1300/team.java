@@ -11,7 +11,7 @@ public class team {
             arr[i][1] = sc.nextInt();
             arr[i][2] = sc.nextInt();
         }
-    
+
         int count = 0;
 
         for(int i=0;i<n;i++){
@@ -21,6 +21,7 @@ public class team {
             if(arr[i][2]==1) majorCount++;
             if(majorCount>=2) count++;
         }
+        
         System.out.println(count);
     }
 }

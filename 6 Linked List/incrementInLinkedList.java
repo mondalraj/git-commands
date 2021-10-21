@@ -17,15 +17,17 @@ public class incrementInLinkedList {
 
     public static Node<Integer> createLinkedList(){
         Scanner sc = new Scanner(System.in);
-        Node<Integer> head = null;
+        Node<Integer> head = null, tail=null;
         int data = sc.nextInt();
+
+        /*  -> Brute force
         while(data != -1){
             Node<Integer> curNode = new Node<>(data);
             if(head == null){
                 //Making first node as head
                 head = curNode;
             }else{
-                //Linking Nodes
+                //Linking Nodes -> brute force
                 Node<Integer> tail = head;
                 while(tail.next !=null){
                     tail = tail.next;
@@ -34,6 +36,23 @@ public class incrementInLinkedList {
             }
             data = sc.nextInt();
         }
+        */
+
+        //Optimization
+
+        while(data != -1){
+            Node<Integer> curNode = new Node<>(data);
+            if(head == null){
+                //Making first node as head and tail
+                head = curNode;
+                tail =curNode;
+            }else{
+                tail.next = curNode;
+                tail =curNode;
+            }
+            data = sc.nextInt();
+        }
+
         return head;
     }
 

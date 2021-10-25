@@ -1,10 +1,23 @@
 import java.util.*;
 
+class doubleNode{
+    Node<Integer> head;
+    Node<Integer> tail;
+
+    doubleNode(){}
+
+    doubleNode(Node<Integer> head, Node<Integer> tail){
+        this.head = head;
+        this.tail = tail;
+    }
+}
+
 public class reverseLinkedList {
     public static void main(String[] args) {
         Node<Integer> head = createLinkedList();
-        head = reverseR(head);
-        printLinkedList(head);
+        // head = reverseR(head);
+        doubleNode ans = reverseROptimize(head);
+        printLinkedList(ans.head);
     }
 
     public static Node<Integer> reverseR(Node<Integer> head) {
@@ -19,6 +32,26 @@ public class reverseLinkedList {
         tail.next = head;
         head.next = null;
         return smallHead;
+    }
+
+    public static doubleNode reverseROptimize(Node<Integer> head){
+        
+        doubleNode ans;
+        if(head==null || head.next ==null){
+            ans = new doubleNode();
+            ans.head = head;
+            ans.tail = head;
+            return ans;
+        }
+
+        doubleNode smallAns = reverseROptimize(head.next);
+        smallAns.tail.next = head;
+        head.next = null;
+        ans = new doubleNode();
+        ans.head = smallAns.head;
+        ans.tail = head;
+        
+        return ans;
     }
 
     public static Node<Integer> createLinkedList() {

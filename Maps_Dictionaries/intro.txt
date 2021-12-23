@@ -1,0 +1,45 @@
+Hashmaps store data in key and value pairs.
+Can be used to store data of all types.
+
+Ex:
+    id(key)    ->   Student Name(value)
+
+    S799            Rajib Mondal
+    S798            Punnya Khurana
+    S645            Hitansh Gupta
+
+Key should be unique because hashmaps use hash functions to store data under a hash address.
+If key is same for 2 values then it will create problems.
+
+Hashmaps use 2 functions to store and retrieve data -> put() and get()
+
+
+When to use Hash Tables? -> In order to speedy the insertion, deletion and lookup of elements is priority, and we can perform that task in O(1) time complexity.
+
+Working -> key -> | Hash function | -> hash value -> maps our key at a particular index in |hash table|
+
+
+Collision -> The result of 2 keys hashing to the same index
+2 methods for resolving collision ->
+
+1. Linear Probing - If a key hashes to the same index as the previoysly stored key, it is assigned the next available slot in the table.
+in this case once collision occurs it is  sure chance that another collision will occur at the same area, this is called clustering(cons).
+This will make operations T.C. O(n)
+
+2. Separate Chaining - Hashtab;e is actually an array of pointers to Linked List
+    0 -> apple     ant      ape  
+         |____| -> |__| ->  |__|
+
+         // (new items start adding at the head of LL)
+
+    1 -> banana
+    2 -> cat
+
+T.C. of Operation -> 0(n/k) k-> size of hash table
+
+
+Properties for defining a good hash function->
+1. Make use of all info provided by the key
+2. Uniformly distributes output across table
+3. Maps similar keys to very different hash values
+4. Uses only very fast operations
